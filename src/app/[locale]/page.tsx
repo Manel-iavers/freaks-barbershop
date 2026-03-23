@@ -3,6 +3,7 @@ import GallerySection from '@/components/sections/GallerySection'
 import LocationSection from '@/components/sections/LocationSection'
 import FooterSection from '@/components/sections/FooterSection'
 import JsonLd from '@/components/layout/JsonLd'
+import ChatWidget from '@/components/chat/ChatWidget'
 import { locales, defaultLocale, getDictionary, type Locale } from '@/lib/dictionaries'
 
 export async function generateStaticParams() {
@@ -27,6 +28,7 @@ export default async function LocalePage({
         <LocationSection dict={dict.location} />
       </main>
       <FooterSection dict={dict.footer} />
+      <ChatWidget locale={safeLocale} />
     </>
   )
 }
