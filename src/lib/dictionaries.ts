@@ -76,7 +76,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       openingDate: 'Dijous 26 de març de 2026',
       tagline: "be FREAK, it's cool.",
       followUs: 'Segueix-nos',
-      howToGetHere: 'Com arribar',
+      howToGetHere: 'Com arribar-hi',
       address: 'Torrent de les Flors 67 · Gracia · Barcelona',
     },
     gallery: {
