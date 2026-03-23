@@ -89,7 +89,7 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
         return
       }
 
-      if (!response.ok || !response.body) {
+      if (!response.ok) {
         setMessages([...newMessages, {
           role: 'assistant',
           content: strings.offlineMessage,
@@ -99,45 +99,8 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
         return
       }
 
-      // Stream the response
-      const reader = response.body.getReader()
-      const decoder = new TextDecoder()
-      let assistantContent = ''
-
-      setMessages([...newMessages, { role: 'assistant', content: '' }])
-
-      while (true) {
-        const { done, value } = await reader.read()
-        if (done) break
-
-        const chunk = decoder.decode(value, { stream: true })
-        const lines = chunk.split('\n')
-
-        for (const line of lines) {
-          if (!line.startsWith('data: ')) continue
-          const data = line.slice(6)
-          if (data === '[DONE]') continue
-
-          try {
-            const parsed = JSON.parse(data)
-            const delta = parsed.choices?.[0]?.delta?.content
-            if (delta) {
-              assistantContent += delta
-              const { cleanText, cardType } = extractCardType(assistantContent)
-              setMessages([...newMessages, {
-                role: 'assistant',
-                content: cleanText,
-                cardType,
-              }])
-            }
-          } catch {
-            // Ignore parse errors in stream chunks
-          }
-        }
-      }
-
-      // Final extraction of card type
-      const { cleanText, cardType } = extractCardType(assistantContent)
+      const data = await response.json()
+      const { cleanText, cardType } = extractCardType(data.content || '')
       setMessages([...newMessages, {
         role: 'assistant',
         content: cleanText,
