@@ -176,7 +176,7 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
       {/* Dragon floating button */}
       <button
         onClick={() => isOpen ? setIsOpen(false) : openChat()}
-        className="fixed bottom-4 right-4 md:right-6 z-50 w-14 h-14 rounded-full overflow-hidden border-2 border-freaks-yellow/50 hover:border-freaks-yellow shadow-lg shadow-freaks-yellow/20 hover:shadow-freaks-yellow/40 transition-all duration-300 group"
+        className="fixed bottom-4 right-4 md:right-6 z-50 w-16 h-16 rounded-full overflow-hidden border-3 border-freaks-yellow hover:border-freaks-yellow-light shadow-lg shadow-freaks-yellow/30 hover:shadow-freaks-yellow/50 transition-all duration-300 group bg-dark-800"
         aria-label={isOpen ? 'Tancar xat' : 'Obrir xat'}
       >
         {isOpen ? (
@@ -184,18 +184,18 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
             <X className="w-6 h-6 text-freaks-yellow" />
           </div>
         ) : (
-          <>
+          <div className="w-full h-full relative">
             <Image
-              src="/images/dragon-logo.jpg"
+              src="/images/dragon-avatar.jpg"
               alt="FREAKS chat"
               fill
-              className="object-cover group-hover:scale-110 transition-transform duration-300"
+              className="object-cover scale-125 group-hover:scale-[1.35] transition-transform duration-300"
             />
             {/* Notification dot */}
             {!hasInteracted && (
-              <div className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-freaks-yellow rounded-full border-2 border-dark-900 animate-pulse" />
+              <div className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-freaks-yellow rounded-full border-2 border-dark-900 animate-pulse z-10" />
             )}
-          </>
+          </div>
         )}
       </button>
 

@@ -66,7 +66,7 @@ export const chatStrings: Record<Locale, {
     locationTitle: 'On som',
     scheduleTitle: 'Horari',
     contactTitle: 'Contacte',
-    openingDate: 'Obrim dijous 26 de marc!',
+    openingDate: 'Obrim dijous 26 de març!',
   },
   es: {
     proactiveMessage: 'Ey freak! Tienes alguna pregunta?',
@@ -126,7 +126,7 @@ Ets l'assistent virtual de FREAKS Barbershop, una barberia unica al cor de Graci
 - Metro: Fontana (L3 verda), 3 minuts caminant
 - Instagram: @freaks_barbershop
 - WhatsApp: +34 693 952 347
-- Obertura: Dijous 26 de marc de 2026
+- Obertura: Dijous 26 de març de 2026
 - Horari: Encara per confirmar (proper anunci a Instagram)
 - Pagament: Efectiu i targeta
 - Cita previa: Recomanable via WhatsApp, pero tambe atenem sense cita si hi ha lloc

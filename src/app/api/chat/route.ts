@@ -3,6 +3,9 @@ import { getSystemPrompt, MLX_MODEL, MAX_MESSAGES_PER_MINUTE, MAX_HISTORY_MESSAG
 import type { Locale } from '@/lib/dictionaries'
 import { locales } from '@/lib/dictionaries'
 
+// Force edge runtime for faster cold starts and longer timeouts
+export const runtime = 'edge'
+
 // Simple in-memory rate limiter (resets on deploy - fine for landing)
 const rateLimit = new Map<string, { count: number; resetAt: number }>()
 
@@ -53,12 +56,13 @@ export async function POST(request: NextRequest) {
     })
   }
 
-  // Keep only last N messages for context window
   const recentMessages = messages.slice(-MAX_HISTORY_MESSAGES)
-
   const mlxUrl = process.env.MLX_API_URL || 'http://localhost:8090'
 
   try {
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), 25000)
+
     const response = await fetch(`${mlxUrl}/v1/chat/completions`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -69,19 +73,23 @@ export async function POST(request: NextRequest) {
           ...recentMessages,
         ],
         stream: true,
-        max_tokens: 300,
+        max_tokens: 200,
         temperature: 0.7,
       }),
+      signal: controller.signal,
     })
 
+    clearTimeout(timeout)
+
     if (!response.ok) {
-      return new Response(JSON.stringify({ error: 'llm_error' }), {
+      const errorText = await response.text().catch(() => 'unknown')
+      console.error(`MLX error: ${response.status} - ${errorText}`)
+      return new Response(JSON.stringify({ error: 'llm_error', status: response.status }), {
         status: 502,
         headers: { 'Content-Type': 'application/json' },
       })
     }
 
-    // Forward the SSE stream
     return new Response(response.body, {
       headers: {
         'Content-Type': 'text/event-stream',
@@ -89,8 +97,9 @@ export async function POST(request: NextRequest) {
         Connection: 'keep-alive',
       },
     })
-  } catch {
-    return new Response(JSON.stringify({ error: 'connection_error' }), {
+  } catch (err) {
+    console.error('Chat API error:', err)
+    return new Response(JSON.stringify({ error: 'connection_error', detail: String(err) }), {
       status: 502,
       headers: { 'Content-Type': 'application/json' },
     })
