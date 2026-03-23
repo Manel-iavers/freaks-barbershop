@@ -29,12 +29,15 @@ export default function HeroSection({ dict }: HeroSectionProps) {
 
       <div className="relative max-w-6xl mx-auto px-4 py-20 w-full">
         <div className="flex flex-col items-center text-center">
-          {/* Coming Soon badge */}
+          {/* Opening date badge */}
           <div className="animate-fade-up">
-            <span className="inline-flex items-center gap-2 bg-freaks-yellow/10 backdrop-blur-sm text-freaks-yellow text-sm font-bold uppercase tracking-[0.2em] px-6 py-2 border border-freaks-yellow/30 mb-8">
+            <span className="inline-flex items-center gap-2 bg-freaks-yellow/10 backdrop-blur-sm text-freaks-yellow text-sm font-bold uppercase tracking-[0.2em] px-6 py-2 border border-freaks-yellow/30 mb-4 animate-pulse-glow">
               <Scissors className="w-4 h-4" />
               {dict.badge}
             </span>
+            <p className="text-freaks-green font-heading text-lg tracking-wider uppercase mb-4">
+              {dict.openingDate}
+            </p>
           </div>
 
           {/* Dragon logo */}

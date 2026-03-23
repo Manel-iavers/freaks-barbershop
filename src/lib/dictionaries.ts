@@ -13,6 +13,7 @@ export interface Dictionary {
   }
   hero: {
     badge: string
+    openingDate: string
     tagline: string
     followUs: string
     howToGetHere: string
@@ -63,7 +64,8 @@ const dictionaries: Record<Locale, Dictionary> = {
       twitterDescription: "be FREAK, it's cool. Nova barberia al cor de Gracia, Barcelona.",
     },
     hero: {
-      badge: 'Proximament a Gracia',
+      badge: 'Obrim el 26 de marc!',
+      openingDate: 'Dijous 26 de marc de 2026',
       tagline: "be FREAK, it's cool.",
       followUs: 'Segueix-nos',
       howToGetHere: 'Com arribar',
@@ -99,10 +101,10 @@ const dictionaries: Record<Locale, Dictionary> = {
       addressTitle: 'Direccio',
       openMaps: 'Obrir a Google Maps',
       hoursTitle: 'Horari',
-      hoursSoon: 'Proximament',
-      hoursSoonDesc: "Aviat anunciarem l'horari d'obertura",
+      hoursSoon: 'Obrim dijous 26 de marc!',
+      hoursSoonDesc: "Aviat anunciarem l'horari complet",
       instagramTitle: 'Instagram',
-      instagramDesc: "Segueix-nos per saber la data d'obertura",
+      instagramDesc: 'Segueix-nos per novetats i contingut freak',
       mapTitle: 'Ubicacio FREAKS Barbershop',
     },
     footer: {
@@ -124,7 +126,8 @@ const dictionaries: Record<Locale, Dictionary> = {
       twitterDescription: "be FREAK, it's cool. Nueva barbería en el corazón de Gracia, Barcelona.",
     },
     hero: {
-      badge: 'Próximamente en Gracia',
+      badge: 'Abrimos el 26 de marzo!',
+      openingDate: 'Jueves 26 de marzo de 2026',
       tagline: "be FREAK, it's cool.",
       followUs: 'Síguenos',
       howToGetHere: 'Cómo llegar',
@@ -160,10 +163,10 @@ const dictionaries: Record<Locale, Dictionary> = {
       addressTitle: 'Dirección',
       openMaps: 'Abrir en Google Maps',
       hoursTitle: 'Horario',
-      hoursSoon: 'Próximamente',
-      hoursSoonDesc: 'Pronto anunciaremos el horario de apertura',
+      hoursSoon: 'Abrimos jueves 26 de marzo!',
+      hoursSoonDesc: 'Pronto anunciaremos el horario completo',
       instagramTitle: 'Instagram',
-      instagramDesc: 'Síguenos para saber la fecha de apertura',
+      instagramDesc: 'Síguenos para novedades y contenido freak',
       mapTitle: 'Ubicación FREAKS Barbershop',
     },
     footer: {
@@ -185,7 +188,8 @@ const dictionaries: Record<Locale, Dictionary> = {
       twitterDescription: "be FREAK, it's cool. New barbershop in the heart of Gracia, Barcelona.",
     },
     hero: {
-      badge: 'Coming Soon in Gracia',
+      badge: 'Opening March 26th!',
+      openingDate: 'Thursday, March 26, 2026',
       tagline: "be FREAK, it's cool.",
       followUs: 'Follow Us',
       howToGetHere: 'Get Directions',
