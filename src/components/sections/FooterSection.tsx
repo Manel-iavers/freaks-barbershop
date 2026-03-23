@@ -1,6 +1,11 @@
 import { Instagram, Scissors } from 'lucide-react'
+import type { Dictionary } from '@/lib/dictionaries'
 
-export default function FooterSection() {
+interface FooterSectionProps {
+  dict: Dictionary['footer']
+}
+
+export default function FooterSection({ dict }: FooterSectionProps) {
   return (
     <footer className="bg-dark-900 text-gray-500 py-8 border-t border-white/5">
       <div className="max-w-6xl mx-auto px-4">
@@ -9,7 +14,7 @@ export default function FooterSection() {
             <Scissors className="w-5 h-5 text-freaks-yellow" />
             <span className="font-heading text-xl text-white tracking-wider uppercase">FREAKS</span>
             <span className="text-gray-600">|</span>
-            <span className="text-sm">Torrent de les Flors 67, Gracia</span>
+            <span className="text-sm">{dict.address}</span>
           </div>
 
           <div className="flex items-center gap-6">
@@ -26,7 +31,7 @@ export default function FooterSection() {
         </div>
 
         <div className="text-center mt-6 text-xs text-gray-700">
-          &copy; {new Date().getFullYear()} FREAKS Barbershop. Tots els drets reservats.
+          &copy; {new Date().getFullYear()} FREAKS Barbershop. {dict.rights}
         </div>
       </div>
     </footer>

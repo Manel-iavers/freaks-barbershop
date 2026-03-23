@@ -1,7 +1,12 @@
 import { Instagram, MapPin, Scissors } from 'lucide-react'
 import Image from 'next/image'
+import type { Dictionary } from '@/lib/dictionaries'
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  dict: Dictionary['hero']
+}
+
+export default function HeroSection({ dict }: HeroSectionProps) {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden grain-overlay">
       {/* Background image with overlay */}
@@ -28,7 +33,7 @@ export default function HeroSection() {
           <div className="animate-fade-up">
             <span className="inline-flex items-center gap-2 bg-freaks-yellow/10 backdrop-blur-sm text-freaks-yellow text-sm font-bold uppercase tracking-[0.2em] px-6 py-2 border border-freaks-yellow/30 mb-8">
               <Scissors className="w-4 h-4" />
-              Proximament a Gracia
+              {dict.badge}
             </span>
           </div>
 
@@ -55,7 +60,7 @@ export default function HeroSection() {
 
           {/* Tagline */}
           <p className="text-xl md:text-2xl text-gray-400 mb-10 italic" style={{ animation: 'fade-up 0.8s ease-out 0.3s both' }}>
-            be FREAK, it&apos;s cool.
+            {dict.tagline}
           </p>
 
           {/* CTA buttons */}
@@ -67,21 +72,21 @@ export default function HeroSection() {
               className="btn-freaks text-lg px-8 py-4"
             >
               <Instagram className="w-5 h-5" />
-              Segueix-nos
+              {dict.followUs}
             </a>
             <a
               href="#ubicacio"
               className="inline-flex items-center justify-center gap-2 text-gray-300 hover:text-freaks-yellow px-8 py-4 font-bold uppercase tracking-wider transition-all duration-200 border border-white/20 hover:border-freaks-yellow/50"
             >
               <MapPin className="w-5 h-5" />
-              Com arribar
+              {dict.howToGetHere}
             </a>
           </div>
 
           {/* Address */}
           <div className="flex items-center gap-2 text-gray-500" style={{ animation: 'fade-up 0.8s ease-out 0.5s both' }}>
             <MapPin className="w-4 h-4 text-freaks-yellow/60" />
-            <span className="text-sm uppercase tracking-[0.15em]">Torrent de les Flors 67 &middot; Gracia &middot; Barcelona</span>
+            <span className="text-sm uppercase tracking-[0.15em]">{dict.address}</span>
           </div>
         </div>
       </div>

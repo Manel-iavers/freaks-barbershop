@@ -1,6 +1,11 @@
 import { MapPin, Instagram, Clock } from 'lucide-react'
+import type { Dictionary } from '@/lib/dictionaries'
 
-export default function LocationSection() {
+interface LocationSectionProps {
+  dict: Dictionary['location']
+}
+
+export default function LocationSection({ dict }: LocationSectionProps) {
   return (
     <section id="ubicacio" className="py-20 bg-dark-900 relative">
       {/* Decorative top border */}
@@ -9,7 +14,7 @@ export default function LocationSection() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-heading text-5xl md:text-6xl text-white tracking-wider uppercase mb-4">
-            Troba&apos;ns a <span className="text-freaks-green">Gracia</span>
+            {dict.sectionTitle} <span className="text-freaks-green">{dict.sectionTitleHighlight}</span>
           </h2>
         </div>
 
@@ -24,7 +29,7 @@ export default function LocationSection() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Ubicacio FREAKS Barbershop"
+              title={dict.mapTitle}
               className="absolute inset-0"
             />
           </div>
@@ -36,7 +41,7 @@ export default function LocationSection() {
                 <MapPin className="w-6 h-6 text-freaks-yellow" />
               </div>
               <div>
-                <h3 className="font-heading text-2xl text-white tracking-wider uppercase mb-1">Direccio</h3>
+                <h3 className="font-heading text-2xl text-white tracking-wider uppercase mb-1">{dict.addressTitle}</h3>
                 <p className="text-gray-400">Torrent de les Flors, 67</p>
                 <p className="text-gray-400">08024 Barcelona (Gracia)</p>
                 <a
@@ -45,7 +50,7 @@ export default function LocationSection() {
                   rel="noopener noreferrer"
                   className="text-freaks-yellow text-sm hover:text-freaks-yellow-light transition-colors mt-2 inline-block uppercase tracking-wider font-bold"
                 >
-                  Obrir a Google Maps &rarr;
+                  {dict.openMaps} &rarr;
                 </a>
               </div>
             </div>
@@ -55,9 +60,9 @@ export default function LocationSection() {
                 <Clock className="w-6 h-6 text-freaks-green" />
               </div>
               <div>
-                <h3 className="font-heading text-2xl text-white tracking-wider uppercase mb-1">Horari</h3>
-                <p className="text-freaks-yellow font-bold uppercase tracking-wider">Proximament</p>
-                <p className="text-gray-500 text-sm mt-1">Aviat anunciarem l&apos;horari d&apos;obertura</p>
+                <h3 className="font-heading text-2xl text-white tracking-wider uppercase mb-1">{dict.hoursTitle}</h3>
+                <p className="text-freaks-yellow font-bold uppercase tracking-wider">{dict.hoursSoon}</p>
+                <p className="text-gray-500 text-sm mt-1">{dict.hoursSoonDesc}</p>
               </div>
             </div>
 
@@ -66,7 +71,7 @@ export default function LocationSection() {
                 <Instagram className="w-6 h-6 text-freaks-purple" />
               </div>
               <div>
-                <h3 className="font-heading text-2xl text-white tracking-wider uppercase mb-1">Instagram</h3>
+                <h3 className="font-heading text-2xl text-white tracking-wider uppercase mb-1">{dict.instagramTitle}</h3>
                 <a
                   href="https://instagram.com/freaks_barbershop"
                   target="_blank"
@@ -75,7 +80,7 @@ export default function LocationSection() {
                 >
                   @freaks_barbershop
                 </a>
-                <p className="text-gray-500 text-sm mt-1">Segueix-nos per saber la data d&apos;obertura</p>
+                <p className="text-gray-500 text-sm mt-1">{dict.instagramDesc}</p>
               </div>
             </div>
           </div>
