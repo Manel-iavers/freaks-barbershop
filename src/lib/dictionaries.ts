@@ -44,6 +44,14 @@ export interface Dictionary {
     instagramDesc: string
     mapTitle: string
   }
+  about: {
+    sectionTitle: string
+    sectionTitleHighlight: string
+    name: string
+    role: string
+    description: string
+    imageAlt: string
+  }
   footer: {
     address: string
     rights: string
@@ -94,6 +102,14 @@ const dictionaries: Record<Locale, Dictionary> = {
           description: 'Aqui venim a tallar cabell i a ser freaks. Sense filtres.',
         },
       ],
+    },
+    about: {
+      sectionTitle: 'El',
+      sectionTitleHighlight: 'Freak',
+      name: 'Julian Ramallo',
+      role: 'Fundador & Barber',
+      description: 'Freak de tota la vida. Col·leccionista, amant del terror classic i la cultura pop. Ara porta les tisores i la bogeria a Gracia.',
+      imageAlt: 'Julian Ramallo, fundador de FREAKS Barbershop',
     },
     location: {
       sectionTitle: "Troba'ns a",
@@ -157,6 +173,14 @@ const dictionaries: Record<Locale, Dictionary> = {
         },
       ],
     },
+    about: {
+      sectionTitle: 'El',
+      sectionTitleHighlight: 'Freak',
+      name: 'Julian Ramallo',
+      role: 'Fundador & Barbero',
+      description: 'Freak de toda la vida. Coleccionista, amante del terror clásico y la cultura pop. Ahora lleva las tijeras y la locura a Gracia.',
+      imageAlt: 'Julian Ramallo, fundador de FREAKS Barbershop',
+    },
     location: {
       sectionTitle: 'Encuéntranos en',
       sectionTitleHighlight: 'Gracia',
@@ -218,6 +242,14 @@ const dictionaries: Record<Locale, Dictionary> = {
           description: "We're here to cut hair and be freaks. No filters.",
         },
       ],
+    },
+    about: {
+      sectionTitle: 'The',
+      sectionTitleHighlight: 'Freak',
+      name: 'Julian Ramallo',
+      role: 'Founder & Barber',
+      description: 'Lifelong freak. Collector, classic horror and pop culture lover. Now bringing the scissors and the madness to Gracia.',
+      imageAlt: 'Julian Ramallo, founder of FREAKS Barbershop',
     },
     location: {
       sectionTitle: 'Find us in',

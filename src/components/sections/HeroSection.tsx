@@ -42,12 +42,12 @@ export default function HeroSection({ dict }: HeroSectionProps) {
 
           {/* Dragon logo */}
           <div className="mb-6" style={{ animation: 'fade-up 0.8s ease-out 0.1s both' }}>
-            <div className="w-32 h-32 md:w-40 md:h-40 relative mx-auto">
+            <div className="w-48 h-24 md:w-64 md:h-32 relative mx-auto drop-shadow-[0_0_20px_rgba(232,169,23,0.3)]">
               <Image
-                src="/images/dragon-logo.jpg"
+                src="/images/dragon-hero.png"
                 alt="FREAKS dragon logo"
                 fill
-                className="object-contain rounded-full border-2 border-freaks-yellow/50"
+                className="object-contain"
               />
             </div>
           </div>

@@ -42,6 +42,10 @@ export async function generateMetadata({
     title: metadata.title,
     description: metadata.description,
     keywords: [...metadata.keywords],
+    icons: {
+      icon: '/favicon.ico',
+      apple: '/apple-touch-icon.png',
+    },
     metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
     openGraph: {
       title: 'FREAKS Barbershop',

@@ -158,8 +158,11 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
     <>
       {/* Proactive bubble */}
       {showProactive && !isOpen && (
-        <button
+        <div
           onClick={openChat}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => { if (e.key === 'Enter') openChat() }}
           className="fixed bottom-24 right-4 md:right-6 z-50 bg-dark-700 border border-freaks-yellow/30 text-white px-4 py-3 rounded-2xl rounded-br-none shadow-lg max-w-[260px] text-left animate-fade-up cursor-pointer hover:border-freaks-yellow/60 transition-colors"
         >
           <p className="text-sm">{strings.proactiveMessage}</p>
@@ -170,13 +173,13 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
           >
             <X className="w-3 h-3" />
           </button>
-        </button>
+        </div>
       )}
 
       {/* Dragon floating button */}
       <button
         onClick={() => isOpen ? setIsOpen(false) : openChat()}
-        className="fixed bottom-4 right-4 md:right-6 z-50 w-16 h-16 rounded-full overflow-hidden border-3 border-freaks-yellow hover:border-freaks-yellow-light shadow-lg shadow-freaks-yellow/30 hover:shadow-freaks-yellow/50 transition-all duration-300 group bg-dark-800"
+        className="fixed bottom-4 right-4 md:right-6 z-50 w-16 h-16 rounded-full overflow-hidden border-2 border-freaks-yellow-dark hover:border-freaks-yellow-light shadow-lg shadow-freaks-yellow/30 hover:shadow-freaks-yellow/50 transition-all duration-300 group bg-freaks-yellow"
         aria-label={isOpen ? 'Tancar xat' : 'Obrir xat'}
       >
         {isOpen ? (
@@ -186,10 +189,10 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
         ) : (
           <div className="w-full h-full relative">
             <Image
-              src="/images/dragon-avatar.jpg"
+              src="/images/dragon-btn.png"
               alt="FREAKS chat"
               fill
-              className="object-cover scale-125 group-hover:scale-[1.35] transition-transform duration-300"
+              className="object-contain p-1 group-hover:scale-110 transition-transform duration-300"
             />
             {/* Notification dot */}
             {!hasInteracted && (
@@ -205,7 +208,7 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
           {/* Header */}
           <div className="bg-dark-700 px-4 py-3 flex items-center gap-3 border-b border-white/5">
             <div className="w-8 h-8 rounded-full overflow-hidden relative flex-shrink-0 border border-freaks-yellow/30">
-              <Image src="/images/dragon-logo.jpg" alt="FREAKS" fill className="object-cover" />
+              <Image src="/images/dragon-btn.png" alt="FREAKS" fill className="object-contain p-0.5" />
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-white font-bold text-sm">FREAKS Bot</p>

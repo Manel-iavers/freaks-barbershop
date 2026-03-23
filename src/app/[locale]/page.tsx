@@ -1,5 +1,6 @@
 import HeroSection from '@/components/sections/HeroSection'
 import GallerySection from '@/components/sections/GallerySection'
+import AboutSection from '@/components/sections/AboutSection'
 import LocationSection from '@/components/sections/LocationSection'
 import FooterSection from '@/components/sections/FooterSection'
 import JsonLd from '@/components/layout/JsonLd'
@@ -25,6 +26,7 @@ export default async function LocalePage({
       <main>
         <HeroSection dict={dict.hero} />
         <GallerySection dict={dict.gallery} />
+        <AboutSection dict={dict.about} />
         <LocationSection dict={dict.location} />
       </main>
       <FooterSection dict={dict.footer} />
