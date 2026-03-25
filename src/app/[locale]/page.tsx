@@ -29,7 +29,7 @@ export default async function LocalePage({
         <AboutSection dict={dict.about} />
         <LocationSection dict={dict.location} />
       </main>
-      <FooterSection dict={dict.footer} />
+      <FooterSection dict={dict.footer} locale={safeLocale} />
       <ChatWidget locale={safeLocale} />
     </>
   )

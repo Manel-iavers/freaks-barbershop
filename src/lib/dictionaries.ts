@@ -55,6 +55,15 @@ export interface Dictionary {
   footer: {
     address: string
     rights: string
+    privacy: string
+    cookies: string
+    madeBy: string
+    cookieBanner: {
+      title: string
+      description: string
+      accept: string
+      reject: string
+    }
   }
   jsonLd: {
     description: string
@@ -126,6 +135,15 @@ const dictionaries: Record<Locale, Dictionary> = {
     footer: {
       address: 'Torrent de les Flors 67, Gracia',
       rights: 'Tots els drets reservats.',
+      privacy: 'Politica de privacitat',
+      cookies: 'Cookies',
+      madeBy: 'Fet per',
+      cookieBanner: {
+        title: 'Utilitzem cookies',
+        description: 'Aquesta web utilitza cookies per garantir el funcionament correcte del lloc. No recollim dades personals.',
+        accept: 'Acceptar',
+        reject: 'Rebutjar',
+      },
     },
     jsonLd: {
       description: "be FREAK, it's cool. Barberia al cor de Gracia, Barcelona.",
@@ -196,6 +214,15 @@ const dictionaries: Record<Locale, Dictionary> = {
     footer: {
       address: 'Torrent de les Flors 67, Gracia',
       rights: 'Todos los derechos reservados.',
+      privacy: 'Politica de privacidad',
+      cookies: 'Cookies',
+      madeBy: 'Hecho por',
+      cookieBanner: {
+        title: 'Usamos cookies',
+        description: 'Esta web utiliza cookies para garantizar el correcto funcionamiento del sitio. No recogemos datos personales.',
+        accept: 'Aceptar',
+        reject: 'Rechazar',
+      },
     },
     jsonLd: {
       description: "be FREAK, it's cool. Barbería en el corazón de Gracia, Barcelona.",
@@ -266,6 +293,15 @@ const dictionaries: Record<Locale, Dictionary> = {
     footer: {
       address: 'Torrent de les Flors 67, Gracia',
       rights: 'All rights reserved.',
+      privacy: 'Privacy policy',
+      cookies: 'Cookies',
+      madeBy: 'Made by',
+      cookieBanner: {
+        title: 'We use cookies',
+        description: 'This website uses cookies to ensure proper functioning. We do not collect personal data.',
+        accept: 'Accept',
+        reject: 'Reject',
+      },
     },
     jsonLd: {
       description: "be FREAK, it's cool. Barbershop in the heart of Gracia, Barcelona.",

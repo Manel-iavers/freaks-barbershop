@@ -1,0 +1,34 @@
+---
+type: context_memory
+project: FREAKS Barbershop
+compiled: 2026-03-25T13:23:25.274Z
+tokens_estimate: 26
+---
+
+# Context: FREAKS Barbershop
+
+summary: |
+  Sense descripció
+
+## Estat Actual
+
+current_phase: SETUP
+current_task: Cap tasca activa
+last_session: 2026-03-25
+
+## Decisions Clau
+
+key_decisions:
+  - Cap decisió registrada
+
+## Fitxers Importants
+
+key_files:
+  - CLAUDE.md (creat)
+  - .claude/memory/project.md (creat)
+  - .claude/memory/session.md (creat)
+
+## Decisions Sessió Actual
+
+session_decisions:
+  - Cap decisió aquesta sessió

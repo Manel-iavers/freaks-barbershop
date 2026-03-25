@@ -3,6 +3,7 @@ import { Inter, Bebas_Neue, Permanent_Marker } from 'next/font/google'
 import '../globals.css'
 import { locales, defaultLocale, getDictionary, type Locale } from '@/lib/dictionaries'
 import LanguageSwitcher from '@/components/layout/LanguageSwitcher'
+import CookieBanner from '@/components/CookieBanner'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -76,6 +77,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params
   const safeLocale: Locale = locales.includes(locale as Locale) ? (locale as Locale) : defaultLocale
+  const dict = getDictionary(safeLocale)
 
   return (
     <html
@@ -85,6 +87,7 @@ export default async function LocaleLayout({
       <body className={inter.className}>
         <LanguageSwitcher currentLocale={safeLocale} />
         {children}
+        <CookieBanner dict={dict.footer.cookieBanner} />
       </body>
     </html>
   )
