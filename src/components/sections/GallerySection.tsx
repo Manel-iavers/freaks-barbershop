@@ -1,7 +1,8 @@
 import Image from 'next/image'
-import { Skull, Clapperboard, Zap } from 'lucide-react'
+import { Skull, Clapperboard, Zap, Music } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import type { Dictionary } from '@/lib/dictionaries'
+import { SPOTIFY_PLAYLIST_ID } from '@/lib/chat-config'
 
 interface GallerySectionProps {
   dict: Dictionary['gallery']
@@ -60,6 +61,57 @@ export default function GallerySection({ dict }: GallerySectionProps) {
                 {dict.labelMerch}
               </span>
             </div>
+          </div>
+        </div>
+
+        {/* Spotify player */}
+        <div className="max-w-2xl mx-auto mb-16 relative">
+          {/* Decorative glow behind */}
+          <div className="absolute -inset-4 bg-freaks-yellow/5 blur-2xl rounded-full pointer-events-none" />
+
+          <div className="relative">
+            {/* Header bar */}
+            <div className="flex items-center gap-3 bg-dark-700 border border-freaks-yellow/30 border-b-0 px-4 py-3">
+              <div className="flex items-center gap-1.5">
+                <div className="w-2 h-2 rounded-full bg-red-500" />
+                <div className="w-2 h-2 rounded-full bg-freaks-yellow" />
+                <div className="w-2 h-2 rounded-full bg-freaks-green" />
+              </div>
+              <div className="flex items-center gap-2 ml-2">
+                <Music className="w-4 h-4 text-freaks-yellow animate-pulse" />
+                <h3 className="font-heading text-lg text-freaks-yellow tracking-wider uppercase">
+                  {dict.musicTitle}
+                </h3>
+              </div>
+              <div className="ml-auto flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-1 bg-freaks-yellow/60 rounded-full"
+                    style={{
+                      height: `${8 + Math.random() * 12}px`,
+                      animation: `pulse-glow ${0.5 + i * 0.15}s ease-in-out infinite alternate`,
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Player */}
+            <div className="bg-dark-900 border border-freaks-yellow/30 border-t-0 p-2 shadow-[0_0_30px_rgba(232,169,23,0.15)]">
+              <iframe
+                src={`https://open.spotify.com/embed/playlist/${SPOTIFY_PLAYLIST_ID}?utm_source=generator&theme=0`}
+                width="100%"
+                height="352"
+                frameBorder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                title="FREAKS Barbershop Playlist"
+              />
+            </div>
+
+            {/* Bottom accent */}
+            <div className="h-1 bg-gradient-to-r from-freaks-yellow/0 via-freaks-yellow/60 to-freaks-yellow/0" />
           </div>
         </div>
 

@@ -27,6 +27,7 @@ export interface Dictionary {
     keychainAlt: string
     labelHorror: string
     labelMerch: string
+    musicTitle: string
     features: Array<{
       title: string
       description: string
@@ -97,6 +98,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       keychainAlt: 'Clauer FREAKS vintage',
       labelHorror: 'Horror & Pop Culture',
       labelMerch: 'Merch',
+      musicTitle: 'La nostra banda sonora',
       features: [
         {
           title: 'Vibes uniques',
@@ -182,6 +184,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       keychainAlt: 'Llavero FREAKS vintage',
       labelHorror: 'Horror & Pop Culture',
       labelMerch: 'Merch',
+      musicTitle: 'Nuestra banda sonora',
       features: [
         {
           title: 'Vibes únicos',
@@ -267,6 +270,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       keychainAlt: 'FREAKS vintage keychain',
       labelHorror: 'Horror & Pop Culture',
       labelMerch: 'Merch',
+      musicTitle: 'Our Soundtrack',
       features: [
         {
           title: 'Unique vibes',
