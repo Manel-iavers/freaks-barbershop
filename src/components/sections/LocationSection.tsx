@@ -61,8 +61,15 @@ export default function LocationSection({ dict }: LocationSectionProps) {
               </div>
               <div>
                 <h3 className="font-heading text-2xl text-white tracking-wider uppercase mb-1">{dict.hoursTitle}</h3>
-                <p className="text-freaks-yellow font-bold uppercase tracking-wider">{dict.hoursSoon}</p>
-                <p className="text-gray-500 text-sm mt-1">{dict.hoursSoonDesc}</p>
+                <div className="space-y-0.5 mt-1">
+                  {dict.hoursSchedule.map((s) => (
+                    <div key={s.day} className="flex justify-between gap-6 text-sm">
+                      <span className="text-gray-300 font-medium">{s.day}</span>
+                      <span className="text-gray-400">{s.hours}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-gray-500 text-sm mt-2">{dict.hoursClosed}</p>
               </div>
             </div>
 

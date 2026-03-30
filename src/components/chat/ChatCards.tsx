@@ -1,5 +1,5 @@
-import { MapPin, Phone, Clock, Scissors } from 'lucide-react'
-import { services, chatStrings, WHATSAPP_URL } from '@/lib/chat-config'
+import { MapPin, Phone, Clock, Scissors, Calendar } from 'lucide-react'
+import { services, chatStrings, WHATSAPP_URL, BOOKSY_URL } from '@/lib/chat-config'
 import type { Locale } from '@/lib/dictionaries'
 
 export type CardType = 'SERVICES' | 'MAP' | 'WHATSAPP' | 'SCHEDULE'
@@ -22,22 +22,19 @@ export function ServiceCard({ locale }: CardProps) {
         {items.map((s) => (
           <div key={s.name} className="flex justify-between items-center">
             <span className="text-gray-300">{s.name}</span>
-            <div className="flex items-center gap-2">
-              <span className="text-gray-500 text-xs">{s.duration}</span>
-              <span className="text-freaks-yellow font-bold">{s.price}</span>
-            </div>
+            <span className="text-gray-500 text-xs">{s.duration}</span>
           </div>
         ))}
       </div>
       <div className="px-3 py-2 border-t border-white/5">
         <a
-          href={`${WHATSAPP_URL}?text=${encodeURIComponent(locale === 'en' ? 'Hi! I\'d like to book an appointment' : locale === 'es' ? 'Hola! Me gustaría reservar cita' : 'Hola! Voldria reservar cita')}`}
+          href={BOOKSY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white py-1.5 rounded text-xs font-bold uppercase tracking-wider transition-colors"
+          className="flex items-center justify-center gap-2 bg-freaks-yellow hover:bg-freaks-yellow-light text-dark-900 py-1.5 rounded text-xs font-bold uppercase tracking-wider transition-colors"
         >
-          <Phone className="w-3 h-3" />
-          WhatsApp
+          <Calendar className="w-3 h-3" />
+          {strings.bookOnBooksy}
         </a>
       </div>
     </div>
@@ -99,6 +96,30 @@ export function WhatsAppCard({ locale }: CardProps) {
 
 export function ScheduleCard({ locale }: CardProps) {
   const strings = chatStrings[locale]
+  const schedule: Array<{ day: string; hours: string }> = locale === 'ca'
+    ? [
+        { day: 'Dl', hours: '12-15, 16-20' },
+        { day: 'Dm', hours: '10-14, 16-20' },
+        { day: 'Dc', hours: '10-14, 16-20' },
+        { day: 'Dj', hours: '10-14, 16-20' },
+        { day: 'Dv', hours: '9-13, 14-18:30' },
+      ]
+    : locale === 'es'
+    ? [
+        { day: 'Lun', hours: '12-15, 16-20' },
+        { day: 'Mar', hours: '10-14, 16-20' },
+        { day: 'Mié', hours: '10-14, 16-20' },
+        { day: 'Jue', hours: '10-14, 16-20' },
+        { day: 'Vie', hours: '9-13, 14-18:30' },
+      ]
+    : [
+        { day: 'Mon', hours: '12-15, 16-20' },
+        { day: 'Tue', hours: '10-14, 16-20' },
+        { day: 'Wed', hours: '10-14, 16-20' },
+        { day: 'Thu', hours: '10-14, 16-20' },
+        { day: 'Fri', hours: '9-13, 14-18:30' },
+      ]
+  const closed = locale === 'ca' ? 'Ds-Dg tancat' : locale === 'es' ? 'Sáb-Dom cerrado' : 'Sat-Sun closed'
 
   return (
     <div className="bg-dark-700 border border-freaks-purple/20 rounded-lg overflow-hidden mt-2 text-sm">
@@ -106,21 +127,14 @@ export function ScheduleCard({ locale }: CardProps) {
         <Clock className="w-4 h-4 text-freaks-purple" />
         <span className="font-bold text-freaks-purple uppercase tracking-wider text-xs">{strings.scheduleTitle}</span>
       </div>
-      <div className="px-3 py-2">
-        <p className="text-freaks-yellow font-bold">{strings.openingDate}</p>
-        <p className="text-gray-500 text-xs mt-1">
-          {locale === 'en' ? 'Full schedule coming soon on Instagram' : locale === 'es' ? 'Horario completo proximamente en Instagram' : 'Horari complet proximament a Instagram'}
-        </p>
-      </div>
-      <div className="px-3 py-2 border-t border-white/5">
-        <a
-          href="https://instagram.com/freaks_barbershop"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 bg-freaks-purple/20 hover:bg-freaks-purple/30 text-freaks-purple py-1.5 rounded text-xs font-bold uppercase tracking-wider transition-colors"
-        >
-          @freaks_barbershop
-        </a>
+      <div className="px-3 py-2 space-y-1">
+        {schedule.map((s) => (
+          <div key={s.day} className="flex justify-between items-center">
+            <span className="text-gray-300 font-medium">{s.day}</span>
+            <span className="text-gray-400 text-xs">{s.hours}</span>
+          </div>
+        ))}
+        <p className="text-gray-500 text-xs mt-1 pt-1 border-t border-white/5">{closed}</p>
       </div>
     </div>
   )

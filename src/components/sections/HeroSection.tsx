@@ -1,6 +1,7 @@
-import { Instagram, MapPin, Scissors } from 'lucide-react'
+import { Instagram, MapPin, Scissors, Calendar } from 'lucide-react'
 import Image from 'next/image'
 import type { Dictionary } from '@/lib/dictionaries'
+import { BOOKSY_URL } from '@/lib/chat-config'
 
 interface HeroSectionProps {
   dict: Dictionary['hero']
@@ -29,15 +30,17 @@ export default function HeroSection({ dict }: HeroSectionProps) {
 
       <div className="relative max-w-6xl mx-auto px-4 py-20 w-full">
         <div className="flex flex-col items-center text-center">
-          {/* Opening date badge */}
-          <div className="animate-fade-up">
-            <span className="inline-flex items-center gap-2 bg-freaks-yellow/10 backdrop-blur-sm text-freaks-yellow text-sm font-bold uppercase tracking-[0.2em] px-6 py-2 border border-freaks-yellow/30 mb-4 animate-pulse-glow">
-              <Scissors className="w-4 h-4" />
-              {dict.badge}
-            </span>
-            <p className="text-freaks-green font-heading text-lg tracking-wider uppercase mb-4">
-              {dict.openingDate}
-            </p>
+          {/* Book now CTA */}
+          <div className="animate-fade-up mb-6">
+            <a
+              href={BOOKSY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-freaks-yellow/10 backdrop-blur-sm text-freaks-yellow text-lg font-bold uppercase tracking-[0.2em] px-8 py-4 border border-freaks-yellow/30 animate-pulse-glow hover:bg-freaks-yellow/20 transition-colors"
+            >
+              <Calendar className="w-4 h-4" />
+              {dict.bookNow}
+            </a>
           </div>
 
           {/* Dragon logo */}

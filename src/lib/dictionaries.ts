@@ -13,8 +13,8 @@ export interface Dictionary {
   }
   hero: {
     badge: string
-    openingDate: string
     tagline: string
+    bookNow: string
     followUs: string
     howToGetHere: string
     address: string
@@ -38,8 +38,8 @@ export interface Dictionary {
     addressTitle: string
     openMaps: string
     hoursTitle: string
-    hoursSoon: string
-    hoursSoonDesc: string
+    hoursSchedule: Array<{ day: string; hours: string }>
+    hoursClosed: string
     instagramTitle: string
     instagramDesc: string
     mapTitle: string
@@ -74,16 +74,16 @@ const dictionaries: Record<Locale, Dictionary> = {
   ca: {
     metadata: {
       title: 'FREAKS Barbershop | Barberia a Gracia, Barcelona',
-      description: "be FREAK, it's cool. Nova barberia al cor de Gracia. Torrent de les Flors 67, Barcelona. Proximament.",
+      description: "be FREAK, it's cool. Barberia al cor de Gracia. Torrent de les Flors 67, Barcelona.",
       keywords: ['barberia', 'barbershop', 'gracia', 'barcelona', 'freaks', 'tall de cabell', 'barber'],
       ogLocale: 'ca_ES',
-      ogDescription: "be FREAK, it's cool. Nova barberia al cor de Gracia, Barcelona.",
-      twitterDescription: "be FREAK, it's cool. Nova barberia al cor de Gracia, Barcelona.",
+      ogDescription: "be FREAK, it's cool. Barberia al cor de Gracia, Barcelona.",
+      twitterDescription: "be FREAK, it's cool. Barberia al cor de Gracia, Barcelona.",
     },
     hero: {
-      badge: 'Obrim el 26 de març!',
-      openingDate: 'Dijous 26 de març de 2026',
+      badge: 'Ja oberts a Gracia!',
       tagline: "be FREAK, it's cool.",
+      bookNow: 'Reserva cita',
       followUs: 'Segueix-nos',
       howToGetHere: 'Com arribar-hi',
       address: 'Torrent de les Flors 67 · Gracia · Barcelona',
@@ -126,8 +126,14 @@ const dictionaries: Record<Locale, Dictionary> = {
       addressTitle: 'Direccio',
       openMaps: 'Obrir a Google Maps',
       hoursTitle: 'Horari',
-      hoursSoon: 'Obrim dijous 26 de març!',
-      hoursSoonDesc: "Aviat anunciarem l'horari complet",
+      hoursSchedule: [
+        { day: 'Dilluns', hours: '12:00-15:00, 16:00-20:00' },
+        { day: 'Dimarts', hours: '10:00-14:00, 16:00-20:00' },
+        { day: 'Dimecres', hours: '10:00-14:00, 16:00-20:00' },
+        { day: 'Dijous', hours: '10:00-14:00, 16:00-20:00' },
+        { day: 'Divendres', hours: '09:00-13:00, 14:00-18:30' },
+      ],
+      hoursClosed: 'Dissabte i diumenge tancat',
       instagramTitle: 'Instagram',
       instagramDesc: 'Segueix-nos per novetats i contingut freak',
       mapTitle: 'Ubicacio FREAKS Barbershop',
@@ -153,16 +159,16 @@ const dictionaries: Record<Locale, Dictionary> = {
   es: {
     metadata: {
       title: 'FREAKS Barbershop | Barbería en Gracia, Barcelona',
-      description: "be FREAK, it's cool. Nueva barbería en el corazón de Gracia. Torrent de les Flors 67, Barcelona. Próximamente.",
+      description: "be FREAK, it's cool. Barbería en el corazón de Gracia. Torrent de les Flors 67, Barcelona.",
       keywords: ['barbería', 'barbershop', 'gracia', 'barcelona', 'freaks', 'corte de pelo', 'barber'],
       ogLocale: 'es_ES',
-      ogDescription: "be FREAK, it's cool. Nueva barbería en el corazón de Gracia, Barcelona.",
-      twitterDescription: "be FREAK, it's cool. Nueva barbería en el corazón de Gracia, Barcelona.",
+      ogDescription: "be FREAK, it's cool. Barbería en el corazón de Gracia, Barcelona.",
+      twitterDescription: "be FREAK, it's cool. Barbería en el corazón de Gracia, Barcelona.",
     },
     hero: {
-      badge: 'Abrimos el 26 de marzo!',
-      openingDate: 'Jueves 26 de marzo de 2026',
+      badge: 'Ya abiertos en Gracia!',
       tagline: "be FREAK, it's cool.",
+      bookNow: 'Reserva cita',
       followUs: 'Síguenos',
       howToGetHere: 'Cómo llegar',
       address: 'Torrent de les Flors 67 · Gracia · Barcelona',
@@ -205,8 +211,14 @@ const dictionaries: Record<Locale, Dictionary> = {
       addressTitle: 'Dirección',
       openMaps: 'Abrir en Google Maps',
       hoursTitle: 'Horario',
-      hoursSoon: 'Abrimos jueves 26 de marzo!',
-      hoursSoonDesc: 'Pronto anunciaremos el horario completo',
+      hoursSchedule: [
+        { day: 'Lunes', hours: '12:00-15:00, 16:00-20:00' },
+        { day: 'Martes', hours: '10:00-14:00, 16:00-20:00' },
+        { day: 'Miércoles', hours: '10:00-14:00, 16:00-20:00' },
+        { day: 'Jueves', hours: '10:00-14:00, 16:00-20:00' },
+        { day: 'Viernes', hours: '09:00-13:00, 14:00-18:30' },
+      ],
+      hoursClosed: 'Sábado y domingo cerrado',
       instagramTitle: 'Instagram',
       instagramDesc: 'Síguenos para novedades y contenido freak',
       mapTitle: 'Ubicación FREAKS Barbershop',
@@ -232,16 +244,16 @@ const dictionaries: Record<Locale, Dictionary> = {
   en: {
     metadata: {
       title: 'FREAKS Barbershop | Barbershop in Gracia, Barcelona',
-      description: "be FREAK, it's cool. New barbershop in the heart of Gracia. Torrent de les Flors 67, Barcelona. Coming soon.",
+      description: "be FREAK, it's cool. Barbershop in the heart of Gracia. Torrent de les Flors 67, Barcelona.",
       keywords: ['barbershop', 'barber', 'gracia', 'barcelona', 'freaks', 'haircut', 'barber shop'],
       ogLocale: 'en_US',
-      ogDescription: "be FREAK, it's cool. New barbershop in the heart of Gracia, Barcelona.",
-      twitterDescription: "be FREAK, it's cool. New barbershop in the heart of Gracia, Barcelona.",
+      ogDescription: "be FREAK, it's cool. Barbershop in the heart of Gracia, Barcelona.",
+      twitterDescription: "be FREAK, it's cool. Barbershop in the heart of Gracia, Barcelona.",
     },
     hero: {
-      badge: 'Opening March 26th!',
-      openingDate: 'Thursday, March 26, 2026',
+      badge: 'Now open in Gracia!',
       tagline: "be FREAK, it's cool.",
+      bookNow: 'Book Now',
       followUs: 'Follow Us',
       howToGetHere: 'Get Directions',
       address: 'Torrent de les Flors 67 · Gracia · Barcelona',
@@ -284,10 +296,16 @@ const dictionaries: Record<Locale, Dictionary> = {
       addressTitle: 'Address',
       openMaps: 'Open in Google Maps',
       hoursTitle: 'Hours',
-      hoursSoon: 'Coming Soon',
-      hoursSoonDesc: "We'll announce opening hours soon",
+      hoursSchedule: [
+        { day: 'Monday', hours: '12:00-15:00, 16:00-20:00' },
+        { day: 'Tuesday', hours: '10:00-14:00, 16:00-20:00' },
+        { day: 'Wednesday', hours: '10:00-14:00, 16:00-20:00' },
+        { day: 'Thursday', hours: '10:00-14:00, 16:00-20:00' },
+        { day: 'Friday', hours: '09:00-13:00, 14:00-18:30' },
+      ],
+      hoursClosed: 'Saturday & Sunday closed',
       instagramTitle: 'Instagram',
-      instagramDesc: 'Follow us to know our opening date',
+      instagramDesc: 'Follow us for news and freak content',
       mapTitle: 'FREAKS Barbershop location',
     },
     footer: {
