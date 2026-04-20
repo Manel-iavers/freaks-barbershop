@@ -3,7 +3,7 @@ import type { Locale } from './dictionaries'
 export const WHATSAPP_URL = 'https://wa.me/34693952347'
 export const INSTAGRAM_URL = 'https://instagram.com/freaks_barbershop'
 export const BOOKSY_URL = 'https://booksy.com/es-es/172973_freaks-barbershop_barberia_48863_barcelona?do=invite&_branch_match_id=1567108092996949552&utm_medium=merchant_customer_invite&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXT07J0UvKz88urtRLzs%2FVL%2FAydnSMLHUNMEyyrytKTUstKsrMS49PKsovL04tsg1OTEssygQAnFIjwDwAAAA%3D'
-export const SPOTIFY_PLAYLIST_ID = '37i9dQZF1E8OUaDB9gFbRt'
+export const SPOTIFY_PLAYLIST_ID = '2M4Y1k40gOqwd0pZo4HO6R'
 export const MLX_MODEL = 'mlx-community/Qwen3.5-9B-MLX-4bit'
 export const MAX_MESSAGES_PER_MINUTE = 5
 export const MAX_HISTORY_MESSAGES = 10
