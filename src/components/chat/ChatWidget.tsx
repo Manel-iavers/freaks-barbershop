@@ -182,6 +182,20 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
             </button>
           </div>
 
+          {/* EU AI Act art. 50.1 — identificació com a sistema d'IA */}
+          <div
+            className="bg-dark-800 px-3 py-1.5 flex items-center gap-2 border-b border-white/5"
+            role="note"
+            aria-label="AI disclaimer"
+          >
+            <span className="bg-freaks-yellow text-dark-900 text-[10px] font-bold px-1.5 py-0.5 rounded">
+              {strings.aiDisclaimerBadge}
+            </span>
+            <span className="text-gray-400 text-[11px] leading-tight">
+              {strings.aiDisclaimerText}
+            </span>
+          </div>
+
           {/* Messages */}
           <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3">
             {messages.map((msg, i) => (

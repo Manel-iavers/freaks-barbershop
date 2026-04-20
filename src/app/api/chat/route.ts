@@ -78,7 +78,12 @@ export async function POST(request: NextRequest) {
     const data = await response.json()
     const content = data.choices?.[0]?.message?.content || ''
 
-    return Response.json({ content })
+    // EU AI Act art. 50.2 — marcatge de contingut generat per IA
+    const headers = new Headers()
+    headers.set('X-AI-Generated', 'true')
+    headers.set('X-AI-Model', MLX_MODEL)
+    headers.set('X-AI-Provider', 'IAvers-Manel-Hernandez-autonom')
+    return Response.json({ content }, { headers })
   } catch (err) {
     console.error('Chat API error:', err)
     return Response.json({ error: 'connection_error' }, { status: 502 })

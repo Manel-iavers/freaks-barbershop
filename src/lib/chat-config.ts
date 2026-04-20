@@ -54,10 +54,12 @@ export const chatStrings: Record<Locale, {
   locationTitle: string
   scheduleTitle: string
   contactTitle: string
+  aiDisclaimerBadge: string
+  aiDisclaimerText: string
 }> = {
   ca: {
     proactiveMessage: 'Ei freak! Tens alguna pregunta?',
-    greeting: 'Hola! Soc l\'assistent de FREAKS Barbershop. Pregunta\'m el que vulguis sobre serveis, preus, ubicacio o qualsevol cosa freak!',
+    greeting: 'Hola! Soc l\'assistent d\'IA de FREAKS Barbershop. Respostes generades automaticament. Pregunta\'m el que vulguis sobre serveis, preus o ubicacio!',
     placeholder: 'Escriu un missatge...',
     errorMessage: 'Ups! Algo ha fallat. Prova de nou o escriu-nos per WhatsApp.',
     offlineMessage: 'Estem fora de linia ara mateix. Escriu-nos per WhatsApp i et responem!',
@@ -68,10 +70,12 @@ export const chatStrings: Record<Locale, {
     locationTitle: 'On som',
     scheduleTitle: 'Horari',
     contactTitle: 'Contacte',
+    aiDisclaimerBadge: 'IA',
+    aiDisclaimerText: 'Assistent IA (Qwen3.5). No soc huma. Persona: WhatsApp.',
   },
   es: {
     proactiveMessage: 'Ey freak! Tienes alguna pregunta?',
-    greeting: 'Hola! Soy el asistente de FREAKS Barbershop. Preguntame lo que quieras sobre servicios, precios, ubicacion o cualquier cosa freak!',
+    greeting: 'Hola! Soy el asistente de IA de FREAKS Barbershop. Respuestas generadas automaticamente. Preguntame sobre servicios, precios o ubicacion!',
     placeholder: 'Escribe un mensaje...',
     errorMessage: 'Ups! Algo ha fallado. Prueba de nuevo o escribenos por WhatsApp.',
     offlineMessage: 'Estamos fuera de linea ahora mismo. Escribenos por WhatsApp y te respondemos!',
@@ -82,10 +86,12 @@ export const chatStrings: Record<Locale, {
     locationTitle: 'Donde estamos',
     scheduleTitle: 'Horario',
     contactTitle: 'Contacto',
+    aiDisclaimerBadge: 'IA',
+    aiDisclaimerText: 'Asistente IA (Qwen3.5). No soy humano. Persona: WhatsApp.',
   },
   en: {
     proactiveMessage: 'Hey freak! Got any questions?',
-    greeting: 'Hey! I\'m the FREAKS Barbershop assistant. Ask me anything about services, prices, location or anything freak!',
+    greeting: 'Hey! I\'m the AI assistant of FREAKS Barbershop. Responses generated automatically. Ask me about services, prices or location!',
     placeholder: 'Type a message...',
     errorMessage: 'Oops! Something went wrong. Try again or message us on WhatsApp.',
     offlineMessage: 'We\'re offline right now. Message us on WhatsApp and we\'ll get back to you!',
@@ -96,6 +102,8 @@ export const chatStrings: Record<Locale, {
     locationTitle: 'Location',
     scheduleTitle: 'Hours',
     contactTitle: 'Contact',
+    aiDisclaimerBadge: 'AI',
+    aiDisclaimerText: 'AI assistant (Qwen3.5). Not human. For a person: WhatsApp.',
   },
 }
 
@@ -110,8 +118,16 @@ export function getSystemPrompt(locale: Locale): string {
     en: 'ALWAYS respond in English.',
   }
 
+  const aiIdentityInstructions: Record<Locale, string> = {
+    ca: "IMPORTANT (EU AI Act art. 50.1): si el visitant pregunta si ets una persona o una IA, respon SEMPRE que ets un sistema d'intel.ligencia artificial (Qwen3.5-9B). No et facis passar per huma. Si volen persona humana, deriva a WhatsApp +34 693 952 347.",
+    es: "IMPORTANTE (EU AI Act art. 50.1): si el visitante pregunta si eres una persona o una IA, responde SIEMPRE que eres un sistema de inteligencia artificial (Qwen3.5-9B). No te hagas pasar por humano. Si quieren hablar con una persona, deriva a WhatsApp +34 693 952 347.",
+    en: "IMPORTANT (EU AI Act art. 50.1): if the visitor asks whether you are a person or an AI, ALWAYS respond that you are an artificial intelligence system (Qwen3.5-9B). Never pretend to be human. If they want to talk to a person, redirect them to WhatsApp +34 693 952 347.",
+  }
+
   return `/no_think
-Ets l'assistent virtual de FREAKS Barbershop, una barberia unica al cor de Gracia, Barcelona.
+Ets l'assistent virtual d'intel.ligencia artificial de FREAKS Barbershop, una barberia unica al cor de Gracia, Barcelona.
+
+${aiIdentityInstructions[locale]}
 
 ## LA TEVA PERSONALITAT
 - To informal, directe, col·lega. Tuteja sempre.
