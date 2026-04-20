@@ -27,38 +27,20 @@ export default function GallerySection({ dict }: GallerySectionProps) {
           </p>
         </div>
 
-        {/* Gallery grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
-          {/* Main large image */}
-          <div className="md:col-span-2 relative group overflow-hidden aspect-[16/9]">
+        {/* Horror & Pop hero image */}
+        <div className="max-w-5xl mx-auto mb-16">
+          <div className="relative group overflow-hidden aspect-[21/9] border border-freaks-yellow/10 shadow-[0_0_40px_rgba(232,169,23,0.1)]">
             <Image
               src="/images/gallery-shelf.jpg"
               alt={dict.imageAlt}
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 to-transparent" />
-            <div className="absolute bottom-4 left-4">
-              <span className="inline-flex items-center gap-2 text-freaks-yellow text-sm font-bold uppercase tracking-wider">
-                <Clapperboard className="w-4 h-4" />
+            <div className="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/20 to-transparent" />
+            <div className="absolute bottom-6 left-6">
+              <span className="inline-flex items-center gap-2 text-freaks-yellow text-base font-bold uppercase tracking-wider">
+                <Clapperboard className="w-5 h-5" />
                 {dict.labelHorror}
-              </span>
-            </div>
-          </div>
-
-          {/* Keychain image */}
-          <div className="relative group overflow-hidden aspect-[3/4] md:aspect-auto">
-            <Image
-              src="/images/keychain.jpg"
-              alt={dict.keychainAlt}
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 to-transparent" />
-            <div className="absolute bottom-4 left-4">
-              <span className="inline-flex items-center gap-2 text-freaks-yellow text-sm font-bold uppercase tracking-wider">
-                <Skull className="w-4 h-4" />
-                {dict.labelMerch}
               </span>
             </div>
           </div>

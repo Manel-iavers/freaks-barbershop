@@ -35,3 +35,8 @@ next-env.d.ts
 
 # Marketing — cache de fons generats per Freepik (regenerable)
 marketing/cache/
+
+# Playwright test artifacts
+.playwright-mcp/
+hero-*.png
+fullpage-*.png

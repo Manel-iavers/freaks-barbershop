@@ -1,4 +1,4 @@
-import { Instagram, MapPin, Scissors, Calendar } from 'lucide-react'
+import { Instagram, MapPin, Calendar } from 'lucide-react'
 import Image from 'next/image'
 import type { Dictionary } from '@/lib/dictionaries'
 import { BOOKSY_URL } from '@/lib/chat-config'
@@ -30,59 +30,61 @@ export default function HeroSection({ dict }: HeroSectionProps) {
 
       <div className="relative max-w-6xl mx-auto px-4 py-20 w-full">
         <div className="flex flex-col items-center text-center">
-          {/* Book now CTA */}
+          {/* Croc logo */}
           <div className="animate-fade-up mb-6">
-            <a
-              href={BOOKSY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-freaks-yellow/10 backdrop-blur-sm text-freaks-yellow text-lg font-bold uppercase tracking-[0.2em] px-8 py-4 border border-freaks-yellow/30 animate-pulse-glow hover:bg-freaks-yellow/20 transition-colors"
-            >
-              <Calendar className="w-4 h-4" />
-              {dict.bookNow}
-            </a>
-          </div>
-
-          {/* Dragon logo */}
-          <div className="mb-6" style={{ animation: 'fade-up 0.8s ease-out 0.1s both' }}>
-            <div className="w-48 h-24 md:w-64 md:h-32 relative mx-auto drop-shadow-[0_0_20px_rgba(232,169,23,0.3)]">
+            <div className="w-64 h-32 md:w-80 md:h-40 relative mx-auto drop-shadow-[0_0_25px_rgba(1,234,140,0.25)]">
               <Image
-                src="/images/dragon-hero.png"
-                alt="FREAKS dragon logo"
+                src="/images/croc.svg"
+                alt="FREAKS croc logo"
                 fill
                 className="object-contain"
+                unoptimized
+                priority
               />
             </div>
           </div>
 
           {/* Title */}
-          <h1 className="font-display text-7xl md:text-9xl lg:text-[10rem] text-freaks-yellow leading-none tracking-wide mb-4" style={{ animation: 'fade-up 0.8s ease-out 0.2s both' }}>
+          <h1 className="font-display text-7xl md:text-9xl lg:text-[10rem] text-freaks-yellow leading-none tracking-wide mb-4" style={{ animation: 'fade-up 0.8s ease-out 0.1s both' }}>
             FREAKS
           </h1>
 
-          <p className="font-heading text-2xl md:text-4xl text-white/90 tracking-[0.15em] uppercase mb-2" style={{ animation: 'fade-up 0.8s ease-out 0.25s both' }}>
+          <p className="font-heading text-2xl md:text-4xl text-white/90 tracking-[0.15em] uppercase mb-2" style={{ animation: 'fade-up 0.8s ease-out 0.2s both' }}>
             Barbershop
           </p>
 
           {/* Tagline */}
-          <p className="text-xl md:text-2xl text-gray-400 mb-10 italic" style={{ animation: 'fade-up 0.8s ease-out 0.3s both' }}>
+          <p className="text-xl md:text-2xl text-gray-400 mb-10 italic" style={{ animation: 'fade-up 0.8s ease-out 0.25s both' }}>
             {dict.tagline}
           </p>
 
-          {/* CTA buttons */}
+          {/* Primary CTA: Book now */}
+          <div className="mb-6" style={{ animation: 'fade-up 0.8s ease-out 0.3s both' }}>
+            <a
+              href={BOOKSY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-freaks-yellow text-dark-900 text-xl md:text-2xl font-black uppercase tracking-[0.2em] px-10 py-5 shadow-[0_0_40px_rgba(232,169,23,0.4)] animate-pulse-glow hover:bg-freaks-yellow/90 hover:scale-[1.02] transition-all duration-200"
+            >
+              <Calendar className="w-6 h-6" />
+              {dict.bookNow}
+            </a>
+          </div>
+
+          {/* Secondary CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 mb-16" style={{ animation: 'fade-up 0.8s ease-out 0.4s both' }}>
             <a
               href="https://instagram.com/freaks_barbershop"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-freaks text-lg px-8 py-4"
+              className="inline-flex items-center justify-center gap-2 text-gray-300 hover:text-freaks-yellow px-6 py-3 font-bold uppercase tracking-wider transition-all duration-200 border border-white/20 hover:border-freaks-yellow/50"
             >
               <Instagram className="w-5 h-5" />
               {dict.followUs}
             </a>
             <a
               href="#ubicacio"
-              className="inline-flex items-center justify-center gap-2 text-gray-300 hover:text-freaks-yellow px-8 py-4 font-bold uppercase tracking-wider transition-all duration-200 border border-white/20 hover:border-freaks-yellow/50"
+              className="inline-flex items-center justify-center gap-2 text-gray-300 hover:text-freaks-yellow px-6 py-3 font-bold uppercase tracking-wider transition-all duration-200 border border-white/20 hover:border-freaks-yellow/50"
             >
               <MapPin className="w-5 h-5" />
               {dict.howToGetHere}

@@ -24,9 +24,7 @@ export interface Dictionary {
     sectionTitleHighlight: string
     sectionDesc: string
     imageAlt: string
-    keychainAlt: string
     labelHorror: string
-    labelMerch: string
     musicTitle: string
     features: Array<{
       title: string
@@ -86,7 +84,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       tagline: "be FREAK, it's cool.",
       bookNow: 'Reserva cita',
       followUs: 'Segueix-nos',
-      howToGetHere: 'Com arribar-hi',
+      howToGetHere: 'Ubicació',
       address: 'Torrent de les Flors 67 · Gracia · Barcelona',
     },
     gallery: {
@@ -95,9 +93,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       sectionDesc:
         'No som una barberia qualsevol. Som un racó per a freaks, col·leccionistes i amants de la cultura pop.',
       imageAlt: 'Col·leccio de figures i memorabilia al local',
-      keychainAlt: 'Clauer FREAKS vintage',
       labelHorror: 'Horror & Pop Culture',
-      labelMerch: 'Merch',
       musicTitle: 'La nostra banda sonora',
       features: [
         {
@@ -172,7 +168,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       tagline: "be FREAK, it's cool.",
       bookNow: 'Reserva cita',
       followUs: 'Síguenos',
-      howToGetHere: 'Cómo llegar',
+      howToGetHere: 'Ubicación',
       address: 'Torrent de les Flors 67 · Gracia · Barcelona',
     },
     gallery: {
@@ -181,9 +177,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       sectionDesc:
         'No somos una barbería cualquiera. Somos un rincón para freaks, coleccionistas y amantes de la cultura pop.',
       imageAlt: 'Colección de figuras y memorabilia en el local',
-      keychainAlt: 'Llavero FREAKS vintage',
       labelHorror: 'Horror & Pop Culture',
-      labelMerch: 'Merch',
       musicTitle: 'Nuestra banda sonora',
       features: [
         {
@@ -258,7 +252,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       tagline: "be FREAK, it's cool.",
       bookNow: 'Book Now',
       followUs: 'Follow Us',
-      howToGetHere: 'Get Directions',
+      howToGetHere: 'Location',
       address: 'Torrent de les Flors 67 · Gracia · Barcelona',
     },
     gallery: {
@@ -267,9 +261,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       sectionDesc:
         "We're not just any barbershop. We're a corner for freaks, collectors and pop culture lovers.",
       imageAlt: 'Collection of figures and memorabilia at the shop',
-      keychainAlt: 'FREAKS vintage keychain',
       labelHorror: 'Horror & Pop Culture',
-      labelMerch: 'Merch',
       musicTitle: 'Our Soundtrack',
       features: [
         {
