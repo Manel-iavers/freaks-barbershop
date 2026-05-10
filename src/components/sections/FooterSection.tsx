@@ -48,9 +48,10 @@ export default function FooterSection({ dict, locale }: FooterSectionProps) {
         <div className="flex items-center justify-center gap-1.5 mt-4 text-xs text-gray-400">
           <span>{dict.madeBy}</span>
           <a
-            href="https://iavers.com"
+            href="https://www.iavers.com"
             target="_blank"
             rel="noopener noreferrer"
+            title="Agència IA al Maresme — desenvolupament a mida i compliance"
             className="flex items-center gap-1.5 hover:text-gray-200 transition-colors"
           >
             <Image
