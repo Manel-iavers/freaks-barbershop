@@ -1,5 +1,6 @@
-import { MapPin, Instagram, Clock } from 'lucide-react'
+import { MapPin, Instagram, Clock, Phone } from 'lucide-react'
 import type { Dictionary } from '@/lib/dictionaries'
+import { PHONE_NUMBER, PHONE_URL } from '@/lib/chat-config'
 
 interface LocationSectionProps {
   dict: Dictionary['location']
@@ -70,6 +71,28 @@ export default function LocationSection({ dict }: LocationSectionProps) {
                   ))}
                 </div>
                 <p className="text-gray-500 text-sm mt-2">{dict.hoursClosed}</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 bg-freaks-yellow/10 border border-freaks-yellow/20 flex items-center justify-center flex-shrink-0">
+                <Phone className="w-6 h-6 text-freaks-yellow" />
+              </div>
+              <div>
+                <h3 className="font-heading text-2xl text-white tracking-wider uppercase mb-1">{dict.phoneTitle}</h3>
+                <a
+                  href={PHONE_URL}
+                  className="text-gray-300 hover:text-freaks-yellow transition-colors text-lg font-medium tracking-wide"
+                >
+                  {PHONE_NUMBER}
+                </a>
+                <p className="text-gray-500 text-sm mt-1">{dict.phoneDesc}</p>
+                <a
+                  href={PHONE_URL}
+                  className="text-freaks-yellow text-sm hover:text-freaks-yellow-light transition-colors mt-2 inline-block uppercase tracking-wider font-bold"
+                >
+                  {dict.callCta} &rarr;
+                </a>
               </div>
             </div>
 

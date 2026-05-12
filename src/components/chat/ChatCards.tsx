@@ -1,8 +1,8 @@
 import { MapPin, Phone, Clock, Scissors, Calendar } from 'lucide-react'
-import { services, chatStrings, WHATSAPP_URL, BOOKSY_URL } from '@/lib/chat-config'
+import { services, chatStrings, PHONE_NUMBER, PHONE_URL, BOOKSY_URL } from '@/lib/chat-config'
 import type { Locale } from '@/lib/dictionaries'
 
-export type CardType = 'SERVICES' | 'MAP' | 'WHATSAPP' | 'SCHEDULE'
+export type CardType = 'SERVICES' | 'MAP' | 'PHONE' | 'SCHEDULE'
 
 interface CardProps {
   locale: Locale
@@ -70,24 +70,26 @@ export function MapCard({ locale }: CardProps) {
   )
 }
 
-export function WhatsAppCard({ locale }: CardProps) {
+export function PhoneCard({ locale }: CardProps) {
   const strings = chatStrings[locale]
+  const callNow = locale === 'en' ? 'Call now' : locale === 'es' ? 'Llamar ahora' : 'Truca ara'
 
   return (
-    <div className="bg-dark-700 border border-green-500/20 rounded-lg overflow-hidden mt-2 text-sm">
-      <div className="bg-green-500/10 px-3 py-2 flex items-center gap-2">
-        <Phone className="w-4 h-4 text-green-400" />
-        <span className="font-bold text-green-400 uppercase tracking-wider text-xs">{strings.contactTitle}</span>
+    <div className="bg-dark-700 border border-freaks-yellow/30 rounded-lg overflow-hidden mt-2 text-sm">
+      <div className="bg-freaks-yellow/10 px-3 py-2 flex items-center gap-2">
+        <Phone className="w-4 h-4 text-freaks-yellow" />
+        <span className="font-bold text-freaks-yellow uppercase tracking-wider text-xs">{strings.contactTitle}</span>
       </div>
-      <div className="px-3 py-2">
+      <div className="px-3 py-3 text-center">
+        <p className="text-white font-bold text-lg tracking-wide">{PHONE_NUMBER}</p>
+      </div>
+      <div className="px-3 py-2 border-t border-white/5">
         <a
-          href={`${WHATSAPP_URL}?text=${encodeURIComponent(locale === 'en' ? 'Hi! I have a question about FREAKS Barbershop' : locale === 'es' ? 'Hola! Tengo una pregunta sobre FREAKS Barbershop' : 'Hola! Tinc una pregunta sobre FREAKS Barbershop')}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors"
+          href={PHONE_URL}
+          className="flex items-center justify-center gap-2 bg-freaks-yellow hover:bg-freaks-yellow-light text-dark-900 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors"
         >
           <Phone className="w-3 h-3" />
-          {strings.whatsappCta}
+          {callNow}
         </a>
       </div>
     </div>
@@ -144,13 +146,13 @@ export function renderCard(type: CardType, locale: Locale) {
   switch (type) {
     case 'SERVICES': return <ServiceCard locale={locale} />
     case 'MAP': return <MapCard locale={locale} />
-    case 'WHATSAPP': return <WhatsAppCard locale={locale} />
+    case 'PHONE': return <PhoneCard locale={locale} />
     case 'SCHEDULE': return <ScheduleCard locale={locale} />
   }
 }
 
 export function extractCardType(text: string): { cleanText: string; cardType: CardType | null } {
-  const cardMatch = text.match(/\[CARD:(SERVICES|MAP|WHATSAPP|SCHEDULE)\]/)
+  const cardMatch = text.match(/\[CARD:(SERVICES|MAP|PHONE|SCHEDULE)\]/)
   if (cardMatch) {
     return {
       cleanText: text.replace(/\[CARD:\w+\]/g, '').trim(),

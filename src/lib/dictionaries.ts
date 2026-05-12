@@ -42,6 +42,9 @@ export interface Dictionary {
     instagramTitle: string
     instagramDesc: string
     mapTitle: string
+    phoneTitle: string
+    phoneDesc: string
+    callCta: string
   }
   about: {
     sectionTitle: string
@@ -135,6 +138,9 @@ const dictionaries: Record<Locale, Dictionary> = {
       instagramTitle: 'Instagram',
       instagramDesc: 'Segueix-nos per novetats i contingut freak',
       mapTitle: 'Ubicacio FREAKS Barbershop',
+      phoneTitle: 'Telèfon',
+      phoneDesc: 'Per a dubtes o preguntes, truca\'ns. Per reservar fes servir Booksy.',
+      callCta: 'Truca ara',
     },
     footer: {
       address: 'Torrent de les Flors 67, Gracia',
@@ -219,6 +225,9 @@ const dictionaries: Record<Locale, Dictionary> = {
       instagramTitle: 'Instagram',
       instagramDesc: 'Síguenos para novedades y contenido freak',
       mapTitle: 'Ubicación FREAKS Barbershop',
+      phoneTitle: 'Teléfono',
+      phoneDesc: 'Para dudas o preguntas, llámanos. Para reservar usa Booksy.',
+      callCta: 'Llamar ahora',
     },
     footer: {
       address: 'Torrent de les Flors 67, Gracia',
@@ -303,6 +312,9 @@ const dictionaries: Record<Locale, Dictionary> = {
       instagramTitle: 'Instagram',
       instagramDesc: 'Follow us for news and freak content',
       mapTitle: 'FREAKS Barbershop location',
+      phoneTitle: 'Phone',
+      phoneDesc: 'For questions, call us. To book, use Booksy.',
+      callCta: 'Call now',
     },
     footer: {
       address: 'Torrent de les Flors 67, Gracia',

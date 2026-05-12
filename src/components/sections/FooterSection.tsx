@@ -1,6 +1,7 @@
 import Image from 'next/image'
-import { Instagram, Scissors } from 'lucide-react'
+import { Instagram, Scissors, Phone } from 'lucide-react'
 import type { Dictionary } from '@/lib/dictionaries'
+import { PHONE_NUMBER, PHONE_URL } from '@/lib/chat-config'
 
 interface FooterSectionProps {
   dict: Dictionary['footer']
@@ -20,6 +21,13 @@ export default function FooterSection({ dict, locale }: FooterSectionProps) {
           </div>
 
           <div className="flex items-center gap-6">
+            <a
+              href={PHONE_URL}
+              className="flex items-center gap-2 text-gray-500 hover:text-freaks-yellow transition-colors text-sm"
+            >
+              <Phone className="w-4 h-4" />
+              {PHONE_NUMBER}
+            </a>
             <a
               href="https://instagram.com/freaks_barbershop"
               target="_blank"

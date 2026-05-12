@@ -26,6 +26,7 @@ export default function JsonLd({ description, locale }: JsonLdProps) {
       latitude: 41.4035,
       longitude: 2.1565,
     },
+    telephone: '+34684721756',
     sameAs: [
       'https://instagram.com/freaks_barbershop',
     ],

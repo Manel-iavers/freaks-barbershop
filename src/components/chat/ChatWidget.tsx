@@ -1,10 +1,10 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { Send, X, MessageCircle } from 'lucide-react'
+import { Send, X, Phone } from 'lucide-react'
 import Image from 'next/image'
 import { renderCard, extractCardType, type CardType } from './ChatCards'
-import { chatStrings, PROACTIVE_DELAY_MS, WHATSAPP_URL } from '@/lib/chat-config'
+import { chatStrings, PROACTIVE_DELAY_MS, PHONE_URL } from '@/lib/chat-config'
 import type { Locale } from '@/lib/dictionaries'
 
 interface Message {
@@ -83,7 +83,7 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
         setMessages([...newMessages, {
           role: 'assistant',
           content: strings.errorMessage,
-          cardType: 'WHATSAPP',
+          cardType: 'PHONE',
         }])
         setIsLoading(false)
         return
@@ -93,7 +93,7 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
         setMessages([...newMessages, {
           role: 'assistant',
           content: strings.offlineMessage,
-          cardType: 'WHATSAPP',
+          cardType: 'PHONE',
         }])
         setIsLoading(false)
         return
@@ -110,7 +110,7 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
       setMessages([...newMessages, {
         role: 'assistant',
         content: strings.offlineMessage,
-        cardType: 'WHATSAPP',
+        cardType: 'PHONE',
       }])
     }
 
@@ -234,16 +234,14 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* WhatsApp quick link */}
+          {/* Phone quick link */}
           <div className="px-4 py-1">
             <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-1.5 text-green-400 text-xs hover:text-green-300 transition-colors"
+              href={PHONE_URL}
+              className="flex items-center justify-center gap-1.5 text-freaks-yellow text-xs hover:text-freaks-yellow-light transition-colors"
             >
-              <MessageCircle className="w-3 h-3" />
-              {strings.whatsappCta}
+              <Phone className="w-3 h-3" />
+              {strings.phoneCta}
             </a>
           </div>
 
